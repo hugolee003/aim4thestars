@@ -34,6 +34,7 @@ body{
   background-color: #fff;
   padding: 25px 30px;
   border-radius: 5px;
+  padding-top: 150px
   
 }
 
@@ -113,57 +114,121 @@ form .button input{
 </head>
 
 <body>
- <div class="container">
-   <div class="title">Register for Aim4thestars</div>
-   <form action="#">
-     <div class="user-details">
-       <div class="input-box">
-         <span class="details">First Name*</span>
-         <input type="text" placeholder="First name" required>
-       </div>
-       <div class="input-box">
-         <span class="details">Last Name*</span>
-         <input type="text" placeholder="Last name" required>
-       </div>
-       <div class="input-box">
-         <span class="details">Phone number*</span>
-         <input type="text" placeholder="Phone number" required>
-       </div>
-       <div class="input-box">
-         <span class="details">Gender</span>
-         <select name="" id="gender">
-           <option value="male">Male</option>
-           <option value="male">Female</option>
-           <!-- <option value="male">Prefer not to say</option> -->
-         </select>
-       </div>
-       <div class="input-box">
-         <span class="details">Country*</span>
-         <input type="text" placeholder="Country" required>
-       </div>
-       <div class="input-box">
-         <span class="details">State/Province</span>
-         <input type="text" placeholder="State/Province" required>
-       </div>
-       <!-- <div class="input-box">
-         <span class="details">Username*</span>
-         <input type="text" placeholder="Username" required>
-       </div> -->
-       <!-- <div class="input-box">
-         <span class="details">Password*</span>
-         <input type="password" placeholder="Password" required>
-       </div>
-       <div class="input-box">
-         <span class="details">Confirm Password*</span>
-         <input type="password" placeholder="Confirm Password" required>
-       </div>
-     </div> -->
-     <div class="button">
-       <a href="#"></a>
-       <input type="submit" value="Register" <a href="#"></a>
-     </div>
-   </form>
- </div>
-</body>
+    <div class="container">
+      <div class="title">Register for Aim4thestars</div>
+      <form id="registerForm">
+        <div class="user-details">
+          <div class="input-box">
+            <span class="details">First Name*</span>
+            <input type="text" name="first_name" placeholder="First name" required>
+          </div>
+          <div class="input-box">
+            <span class="details">Last Name*</span>
+            <input type="text" name="last_name" placeholder="Last name" required>
+          </div>
+          <div class="input-box">
+            <span class="details">Phone number*</span>
+            <input type="text" name="phone_number" placeholder="Phone number" required>
+          </div>
+          <div class="input-box">
+            <span class="details">Email Address</span>
+            <input type="email" name="email" placeholder="Email" required>
+          </div>
+          <div class="input-box">
+            <span class="details">Gender</span>
+            <select name="gender" id="gender">
+              <option value="male">Male</option>
+              <option value="female">Female</option>
+            </select>
+          </div>
+          <div class="input-box">
+            <span class="details">Country*</span>
+            <input type="text" name="country" placeholder="Country" required>
+          </div>
+          <div class="input-box">
+            <span class="details">State/Province</span>
+            <input type="text" name="state" placeholder="State/Province" required>
+          </div>
+          <div class="input-box">
+            <span class="details">Nationality</span>
+            <input type="text" name="nationality" placeholder="Nationality" required>
+          </div>
+          <div class="input-box">
+            <span class="details">Child's Full Name</span>
+            <input type="text" name="child_name" placeholder="Child's Full Name" required>
+          </div>
+          <div class="input-box">
+            <span class="details">Child's Age</span>
+            <input type="text" name="child_age" placeholder="Child's Age" required>
+          </div>
+          <div class="input-box">
+            <span class="details">Child's Date Of Birth</span>
+            <input type="date" name="child_dob" required>
+          </div>
+          <div class="input-box">
+            <span class="details">Child's School</span>
+            <input type="text" name="child_school" placeholder="Child's School" required>
+          </div>
+          <div class="input-box">
+            <span class="details">Child's Class</span>
+            <input type="text" name="child_class" placeholder="Child's Class" required>
+          </div>
+        </div>
+  
+        <div class="button">
+          <input type="submit" value="Register">
+        </div>
+      </form>
+    </div>
+  
+    <script>
+      document.getElementById("registerForm").addEventListener("submit", async function(event) {
+  event.preventDefault();
+
+  let formData = {
+    first_name: document.querySelector("[name='first_name']").value,
+    last_name: document.querySelector("[name='last_name']").value,
+    phone_number: document.querySelector("[name='phone_number']").value,
+    email: document.querySelector("[name='email']").value,
+    gender: document.querySelector("[name='gender']").value,
+    country: document.querySelector("[name='country']").value,
+    state: document.querySelector("[name='state']").value,
+    nationality: document.querySelector("[name='nationality']").value,
+    child_name: document.querySelector("[name='child_name']").value,
+    child_age: document.querySelector("[name='child_age']").value,
+    child_dob: document.querySelector("[name='child_dob']").value,
+    child_school: document.querySelector("[name='child_school']").value,
+    child_class: document.querySelector("[name='child_class']").value
+  };
+
+  try {
+    let response = await fetch("https://script.google.com/macros/s/AKfycbyiJUz0Ae56hTAqlfTQ-aJ88RHOiw7GnUZd99_0NcWcjPIm57G-OOcjTLjbxlb1Gm-OYQ/exec", {
+      method: "POST",
+      mode: 'cors', // This is important
+      cache: 'no-cache',
+      credentials: 'omit',
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(formData)
+    });
+
+    let result = await response.json();
+
+    if (result.status === "success") {
+      alert("Registration successful!");
+      this.reset();
+    } else {
+      alert("Error submitting form. " + (result.message || ""));
+    }
+  } catch (error) {
+    console.error("Fetch error:", error);
+    alert("An error occurred. Check the console for details.");
+  }
+});
+
+    </script>
+  </body>
+  
 
 </html>
