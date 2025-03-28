@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>replit</title>
+  <!-- <link href="style.css" rel="stylesheet" type="text/css" /> -->
+
+   <style>
+    /* html, body {
+  height: 100%;
+  width: 100%;
+} */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;1,500;1,600&family=Roboto:ital,wght@0,300;0,400;0,500;1,300&display=swap');
+*{
+  margin: 0;
+  padding: 0;
+  font-family: "Poppins",  sans-serif;
+}
+
+body{
+  display: flex;
+  height: 100vh;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+  background-color: #ecf0f3
+}
+
+.container{
+  max-width: 700px;
+  width: 100%;
+  background-color: #fff;
+  padding: 25px 30px;
+  border-radius: 5px;
+  
+}
+
+.container .title{
+  font-size: 25px;
+  font-weight: 500;
+}
+
+.container form .user-details{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin: 20px 0px 12px 0px;
+}
+
+form .user-details .input-box{
+  margin-bottom: 15px;
+  width: calc(100% / 2 - 20px);
+}
+
+.user-details .input-box .details{
+  display: block;
+  font-weight: 500;
+  margin-bottom: 5px;
+}
+
+.user-details .input-box input{
+  height: 45px;
+  width: 100%;
+  outline: none;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  padding-left: 15px;
+  font-size: 16px;
+  border-bottom-width: 2px;
+  transition: all 0.3s ease;
+}
+
+.user-details .input-box input:focus,
+.user-details .input-box input:valid{
+  border-color: #129cf3;
+}
+
+#gender{
+  height: 45px;
+  width: 100%;
+  outline: none;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  padding-left: 15px;
+  font-size: 16px;
+  border-bottom-width: 2px;
+  transition: all 0.3s ease;
+}
+
+form .button{
+  height: 45px;
+  width: 120px;
+  margin: 45px 0px;
+}
+
+form .button input{
+  height: 100%;
+  width: 100%;
+  outline: none;
+/*   color: value; */
+/*   : #fff; */
+  border: none;
+  font-size: 18px;
+  font-weight: 500;
+  letter-spacing: 1px;
+  border-radius: 5px;
+  background-color: #129cf3;
+  cursor: pointer;
+}
+   </style>
+</head>
+
+<body>
+ <div class="container">
+   <div class="title">Register for Aim4thestars</div>
+   <form action="#">
+     <div class="user-details">
+       <div class="input-box">
+         <span class="details">First Name*</span>
+         <input type="text" placeholder="First name" required>
+       </div>
+       <div class="input-box">
+         <span class="details">Last Name*</span>
+         <input type="text" placeholder="Last name" required>
+       </div>
+       <div class="input-box">
+         <span class="details">Phone number*</span>
+         <input type="text" placeholder="Phone number" required>
+       </div>
+       <div class="input-box">
+         <span class="details">Gender</span>
+         <select name="" id="gender">
+           <option value="male">Male</option>
+           <option value="male">Female</option>
+           <!-- <option value="male">Prefer not to say</option> -->
+         </select>
+       </div>
+       <div class="input-box">
+         <span class="details">Country*</span>
+         <input type="text" placeholder="Country" required>
+       </div>
+       <div class="input-box">
+         <span class="details">State/Province</span>
+         <input type="text" placeholder="State/Province" required>
+       </div>
+       <!-- <div class="input-box">
+         <span class="details">Username*</span>
+         <input type="text" placeholder="Username" required>
+       </div> -->
+       <!-- <div class="input-box">
+         <span class="details">Password*</span>
+         <input type="password" placeholder="Password" required>
+       </div>
+       <div class="input-box">
+         <span class="details">Confirm Password*</span>
+         <input type="password" placeholder="Confirm Password" required>
+       </div>
+     </div> -->
+     <div class="button">
+       <a href="#"></a>
+       <input type="submit" value="Register" <a href="#"></a>
+     </div>
+   </form>
+ </div>
+</body>
+
+</html>
